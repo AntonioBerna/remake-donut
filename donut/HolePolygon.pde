@@ -1,21 +1,21 @@
 class HolePolygon {
-  color white = color(255, 255, 255);
-  int how_many, sides, radius, radius_axis;
+  int how_many, sides, radius, radius_axis, color_;
 
-  HolePolygon(int how_many, int sides, int radius, int radius_axis) {
+  HolePolygon(int how_many, int sides, int radius, int radius_axis, color color_) {
     this.how_many = how_many;
     this.sides = sides;
     this.radius = radius;
     this.radius_axis = radius_axis;
+    this.color_ = color_;
   }
 
   void animate(float k, float speed, float thickness) {
-    background(black);
     translate(width / 2, height / 2);
     rotateX(k * PI); // if k = 0.75 => k = 3/4, ...
     rotate(speed * frameCount);
+    
     noFill();
-    stroke(white);
+    stroke(this.color_);
     strokeWeight(thickness);
 
     float rad_count = TWO_PI / this.how_many;
